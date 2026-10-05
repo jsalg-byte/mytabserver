@@ -1,0 +1,10 @@
+services:
+    app:
+        image: louislam/its-mytabs:1
+        ports:
+            # Host Port:Container Port
+            - "47777:47777"
+        volumes:
+            # Host Path:Container Path
+            - ./data:/app/data
+        restart: unless-stopped

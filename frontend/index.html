@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>It's MyTabs</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script>
+        try {
+            const appConfigElement = document.getElementById("app-config");
+            if (!appConfigElement) {
+                throw new Error("App config element not found");
+            }
+            const config = JSON.parse(appConfigElement.textContent);
+            window.isDemo = config.isDemo;
+        } catch (e) {
+            window.isDemo = false;
+        }
+        </script>
+        <script type="module" src="/src/main.ts"></script>
+    </body>
+</html>

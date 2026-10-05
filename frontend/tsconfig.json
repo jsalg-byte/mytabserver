@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "moduleResolution": "nodenext",
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true
+    }
+}

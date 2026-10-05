@@ -1,0 +1,12 @@
+$dark1: #1c2024;
+$color2-dark: #535d65;
+
+// Bootstrap Override
+$primary: #3131c6;
+$link-color-dark: #b0c5d5;
+$link-hover-color-dark: white;
+$border-color-dark: #222;
+$border-radius: 3px;
+$form-check-input-bg: $dark1;
+$checkbox-border-color-dark: #b0c5d5;
+$form-check-input-border: var(--bs-border-width) solid #{$checkbox-border-color-dark};
