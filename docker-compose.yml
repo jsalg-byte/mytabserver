@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mytabserver:latest
+    container_name: mytabserver
+    restart: unless-stopped
+    ports:
+      - "${PORT:-47777}:47777"
+    environment:
+      - MYTABS_HOST=0.0.0.0
+      - MYTABS_PORT=47777
+    volumes:
+      - tab-data:/app/data
+
+volumes:
+  tab-data:
+    name: mytabserver-data
