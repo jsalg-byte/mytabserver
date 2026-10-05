@@ -25,7 +25,7 @@ EXPOSE 47777
 RUN mkdir -p /app/data && chown -R deno:deno /app/data
 
 RUN apt update && \
-    apt --yes --no-install-recommends install gosu && \
+    apt --yes --no-install-recommends install gosu curl && \
     rm -rf /var/lib/apt/lists/*
 
 USER deno
@@ -49,6 +49,9 @@ USER root
 RUN chmod +x /app/extra/docker-entrypoint.sh
 
 VOLUME ["/app/data"]
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
+    CMD curl -f http://localhost:47777/api/is-finish-setup || exit 1
 
 ENTRYPOINT ["/app/extra/docker-entrypoint.sh"]
 CMD ["deno", "task", "start"]

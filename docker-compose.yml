@@ -6,6 +6,8 @@ services:
     image: mytabserver:latest
     container_name: mytabserver
     restart: unless-stopped
+    expose:
+      - 47777
     ports:
       - "${PORT:-47777}:47777"
     environment:
